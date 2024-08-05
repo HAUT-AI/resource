@@ -35,3 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Define Line Ending Preferences in
+*.md text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+*.css text eol=lf
+*.tsx text eol=lf
+*.ts text eol=lf
