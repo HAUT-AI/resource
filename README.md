@@ -1,12 +1,5 @@
 # 河工大 AI 开发社资源站
 
-## 语言切换
-
-- [English](#english)(readme/README.en.md)
-- [中文](#中文)(readme/README.md)
-
-## 中文
-
 ### 功能
 
 - **SEO 支持优秀**: 使用 Next.js 14 构建，适合现代 Web 开发。
