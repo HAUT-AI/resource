@@ -1,7 +1,6 @@
 // app/page.tsx
 import axios from 'axios';
 import ScrollView from '@/components/ScrollView/ScrollView';
-
 export default async function Home() {
   const res = await axios.get(
     'https://www.designnotes.cn/lang/yyds.json?designnotes=studyhardandmakeprogresseverydayd'
@@ -12,4 +11,13 @@ export default async function Home() {
       <ScrollView data={data} />
     </>
   );
+}
+
+Home.getLayout = function getLayout(page) {
+  return {
+    page,
+    props: {
+      rootLayout: (props) => <Layout {...props} />,
+    },
+  };
 }
