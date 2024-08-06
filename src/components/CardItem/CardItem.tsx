@@ -7,7 +7,7 @@ export default function CardItem({ item }) {
 
   return (
     <div
-      className="w-80 h-32 rounded-lg border border-[rgba(240,240,240,1)] hover:border-[rgba(240,240,240,0.8)] pt-4 pl-4 hover:bg-[rgba(240,240,240,0.8)] mb-2 cursor-pointer"
+      className="w-80 h-32 rounded-lg border border-[rgba(220,220,220,1)] hover:border-[rgba(240,240,240,0.8)] pt-4 pl-4 hover:bg-[rgba(240,240,240,0.8)] mb-2 cursor-pointer"
       onClick={openUrlInNewTab}
     >
       <div className="flex items-center space-x-4 mb-2">

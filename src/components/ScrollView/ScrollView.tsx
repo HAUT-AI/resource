@@ -1,9 +1,34 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import CardItem from '../CardItem/CardItem';
+import SvgIcon from '../SvgIcon/SvgIcon';
 
 interface ScrollViewProps {
   data: any[];
+}
+
+interface DirectionButtonProps {
+  direction: number;
+  flag: string;
+  handleSlideChange: (direction: number) => void;
+  disabled: boolean;
+}
+
+function DirectionButton({ direction, flag, handleSlideChange, disabled }: DirectionButtonProps) {
+  return (
+    // 暂时去掉背景颜色，这个按钮目前是有形状的。
+    <button
+      className={`absolute ${direction === 0 ? 'left-0' : 'right-0'} top-1/2 transform -translate-y-1/2 px-4 py-2 rounded-xl`}
+      onClick={() => handleSlideChange(direction)}
+      disabled={disabled}
+    >
+      <SvgIcon
+        name={flag}
+        width={24}
+        height={24}
+      />
+    </button>
+  );
 }
 
 export default function ScrollView({ data }: ScrollViewProps) {
@@ -27,9 +52,9 @@ export default function ScrollView({ data }: ScrollViewProps) {
 
   return (
     <>
-      <div className="flex relative overflow-hidden w-full">
+      <div className="flex relative overflow-hidden w-11/12 mx-auto">
         <div
-          className="flex transition-transform duration-300 ease-in-out"
+          className="flex transition-transform duration-300 ease-in-out mx-auto"
           ref={containerRef}
           style={{
             transform: `translateX(-${currentSlide * (100 / data.length)}%)`,
@@ -39,7 +64,7 @@ export default function ScrollView({ data }: ScrollViewProps) {
           {data.map((item, index) => (
             <div
               key={index}
-              className="flex-shrink-0 flex-grow px-4 flex items-center justify-center h-12 bg-gray-200 rounded-3xl mx-2"
+              className="flex-shrink-0 px-4 flex items-center justify-center h-12 bg-gray-200 rounded-3xl mx-2"
               style={{ minWidth: '80px' }}
               onClick={() => handleSelectItem(item)}
             >
@@ -47,20 +72,18 @@ export default function ScrollView({ data }: ScrollViewProps) {
             </div>
           ))}
         </div>
-        <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-blue-500 rounded-md text-white"
-          onClick={() => handleSlideChange(0)}
-          disabled={currentSlide === 0}
-        >
-          左移
-        </button>
-        <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-blue-500 rounded-md text-white"
-          onClick={() => handleSlideChange(1)}
-          disabled={currentSlide >= Math.ceil(data.length / 2) - 1}
-        >
-          右移
-        </button>
+      </div>
+      <div className='relative -top-8 mt-2'>
+        <DirectionButton
+          direction={0}
+          flag="left"
+          handleSlideChange={handleSlideChange}
+        />
+        <DirectionButton
+          direction={1}
+          flag="right"
+          handleSlideChange={handleSlideChange}
+        />
       </div>
       <div className="w-full mt-2 p-6 flex flex-wrap justify-start gap-12">
         {currentSelectItem.map((item, index) => (
