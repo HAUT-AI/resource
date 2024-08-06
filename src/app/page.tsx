@@ -1,9 +1,15 @@
-// ./page.tsx 页面组件，每个页面独有的ui组件
-import ScrollView from "@/components/ScrollView/ScrollView";
-export default function Home() {
+// app/page.tsx
+import axios from 'axios';
+import ScrollView from '@/components/ScrollView/ScrollView';
+
+export default async function Home() {
+  const res = await axios.get(
+    'https://www.designnotes.cn/lang/yyds.json?designnotes=studyhardandmakeprogresseverydayd'
+  );
+  const data = res.data.data;
   return (
     <>
-      <ScrollView></ScrollView>
+      <ScrollView data={data} />
     </>
   );
 }

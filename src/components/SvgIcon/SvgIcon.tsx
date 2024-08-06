@@ -6,7 +6,6 @@ interface SvgIconProps extends SVGProps<SVGSVGElement> {
 }
 
 const SvgIcon: FC<SvgIconProps> = memo(({ name, ...props }) => {
-  // Use a dynamic import for SVG icons
   const SvgIconComponent = lazy(() =>
     import(`@/assets/icons/${name}.svg`).catch(() => {
       console.error(`Icon "${name}" not found`);
