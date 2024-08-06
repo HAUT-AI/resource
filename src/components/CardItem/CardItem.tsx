@@ -17,7 +17,11 @@ export default function CardItem({ item }) {
           className="w-12 h-12 mb-1 p-1 bg-[rgba(240,240,240,0.8)] rounded-lg"
         />
         <div className="flex flex-col space-y-1">
-          <div className="font-bold text-lg text-gray-900 opacity-75">{item.title}</div>
+          <div className="font-bold text-lg text-gray-900 opacity-75">
+            {item.title.length > 13
+              ? `${item.title.substring(0, 13)}...`
+              : item.title}
+          </div>
           <div className="flex space-x-2">
             {item.callword.slice(0, 2).map((callwordItem, index) => (
               <span

@@ -62,7 +62,7 @@ export default function ScrollView({ data }: ScrollViewProps) {
           右移
         </button>
       </div>
-      <div className="w-full mt-2 p-4 flex flex-wrap justify-between">
+      <div className="w-full mt-2 p-6 flex flex-wrap justify-start gap-12">
         {currentSelectItem.map((item, index) => (
           <CardItem key={index} item={item} />
         ))}
