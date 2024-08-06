@@ -30,9 +30,11 @@ export default function CardItem({ item }) {
           </div>
         </div>
       </div>
-      <div className="pl-2 pt-3">
+      <div className="pl-2 pt-2 pr-2">
         <div className="text-xs text-gray-900 opacity-75">
-          {item.description.zh}
+          {item.description.zh.length > 45
+            ? `${item.description.zh.substring(0, 45)}...` 
+            : item.description.zh}
         </div>
       </div>
     </div>

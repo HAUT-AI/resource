@@ -1,5 +1,9 @@
 # 河工大 AI 开发社资源站
 
+该项目使用 Next.js 14 + Tailwind CSS + TypeScript 搭建，并且目前并没有引入相关的 ui 组件库。
+目前使用的接口是别人的接口，感谢开源。
+以前用的 vue，第一次接触 react 以及 next。写的不好的地方见谅。
+
 ### 功能
 
 - **SEO 支持优秀**: 使用 Next.js 14 构建，适合现代 Web 开发。
